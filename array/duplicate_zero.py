@@ -1,4 +1,5 @@
-# 1. 計算0的個數，新array的最後一個0不用複製
+# 0. 迭代次數必須是新array的長度而非原始的array長度
+# 1. 因此必須事先計算0的個數，推算新array的長度，，新array的最後一個0不用複製
 # 2. 計算新array的長度
 # 3. 從array尾部往回遍歷，若為0則複製兩次放在結尾，若非0則複製一次
 # https://leetcode.com/problems/duplicate-zeros/solutions/393433/official-solution/
