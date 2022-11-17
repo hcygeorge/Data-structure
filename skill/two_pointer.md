@@ -10,8 +10,10 @@ left, right兩個指針分別從資料兩端往中間移動
 
 ### 快慢指針(同方向)
 兩個指針都從同方向開始移動，但慢指針只有在滿足條件下移動
-- 可解sub sequence
-- 可解remove duplicates from sorted array
+可解決
+- sub sequence
+- remove duplicates from sorted array
+- remove element
 
 ## 筆記
 對撞指針看起來適合處理有排序的array或linked list\
