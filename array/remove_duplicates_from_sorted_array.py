@@ -9,18 +9,17 @@ class Solution(object):
         l = len(nums)
         fast = 0
         slow = 0
-        prev_num = None
         unique_counter = 0
+        
         while fast <= l-1:
             if fast == 0:
                 slow += 1
                 unique_counter += 1
             else:
-                if nums[fast] != prev_num:
+                if nums[fast] != nums[fast-1]:
                     nums[slow] = nums[fast]
                     slow += 1
                     unique_counter += 1
                     
-            prev_num = nums[fast]
             fast += 1
         return unique_counter
