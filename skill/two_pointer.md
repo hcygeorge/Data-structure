@@ -6,7 +6,6 @@
 ### 對撞指針(反方向)
 left, right兩個指針分別從資料兩端往中間移動，常用於sorted array題型，可解決
 - squares of a sorted array
-- two sum
 - remove element
 
 ### 快慢指針(同方向)

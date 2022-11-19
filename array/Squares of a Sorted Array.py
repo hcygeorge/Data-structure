@@ -1,4 +1,4 @@
-# squares of a sorted array
+# Squares of a Sorted Array
 class Solution:
     def sortedSquares(self, nums):
         """
