@@ -34,4 +34,4 @@ class Solution(object):
         else:
             return nums[0]
         
-# O(n)解法
+# Min Heap Data Structure，O(n)
