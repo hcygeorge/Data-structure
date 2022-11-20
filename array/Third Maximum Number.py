@@ -39,6 +39,7 @@ class Solution(object):
             return nums[0]
 
 # 3 Pointers
+# flag用於判斷變數是否有更新，避免遇到元素剛好等於預設值的情況
 class Solution:
     def thirdMax(self, nums):
         """
