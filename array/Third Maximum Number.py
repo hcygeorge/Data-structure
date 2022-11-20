@@ -4,7 +4,8 @@
 # Min Heap Data Structure，O(n)
 # Sorted set，O(n)
 
-# 直覺解法，先排序再找第三大元素，O(nlogn)
+# 直覺解法，先排序再找第三大元素
+# O(nlogn)
 class Solution(object):
     def thirdMax(self, nums):
         """
