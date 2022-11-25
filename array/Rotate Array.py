@@ -34,3 +34,6 @@ class Solution(object):
 # non in-place
 # 直接將後k項和前l-k項合併起來(l為陣列長度)，
 # 將整個陣列重複銜接一次，取[(l-k):(2 * l - k)]亦可。
+
+# refer to
+# https://ithelp.ithome.com.tw/articles/10213291
