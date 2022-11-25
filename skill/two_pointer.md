@@ -4,11 +4,12 @@
 用兩個指針遍歷資料，按照指針移動的方向可分為對撞指針和快慢指針。
 
 ### 對撞指針(反方向)
-left, right兩個指針分別從資料兩端往中間移動，常用於在sorted array下**需要比大小**題型
+left, right兩個指針分別從資料兩端往中間移動，常用於在sorted array下**需要比大小**題型，或反轉陣列排序
 
 相關題型
 - squares of a sorted array
 - remove element
+- rotate array
 
 ### 快慢指針(同方向)
 兩個指針都從同方向開始移動，但慢指針只有在滿足條件下移動，常用於**要求inplace操作**array的問題
