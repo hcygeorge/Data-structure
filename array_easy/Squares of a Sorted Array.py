@@ -1,4 +1,5 @@
 # Squares of a Sorted Array
+# 此題需處理的是平方後負數的數值可能大於正數
 # 用左右指針比較兩元素的絕對數值大小，將大的平方並儲存於新陣列
 class Solution:
     def sortedSquares(self, nums):
