@@ -9,7 +9,7 @@
 
 class Solution(object):
     """
-    Hashmap累計出現次數
+    用Hashmap累計元素出現次數，找出只出現一次的元素
     """
     def singleNumber(self, nums):
         """
