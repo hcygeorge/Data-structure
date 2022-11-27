@@ -3,8 +3,6 @@
 # do it in-place
 # 將陣列顛倒後，再將前k個元素和後len(nums)-k的元素分別顛倒，即可得到往右移動k步的答案
 class Solution(object):
-
-    
     def rotate(self, nums, k):
         """
         :type nums: List[int]
