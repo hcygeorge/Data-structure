@@ -8,3 +8,8 @@ hash table是由key-value pairs組成的資料結構，其中hash function用於
 - set
 
 可將set看成value=Null的dict
+
+## 解題
+常用於解需要檢查array中是否存在重複(duplicate)或有某種對應關係元素的題目，如
+- Check If N and Its Double Exist
+- Contains Duplicate
