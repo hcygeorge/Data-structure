@@ -31,7 +31,12 @@ class Solution(object):
 class Solution2(object):
     """
     Bitwise operation
-    use XOR to eliminate duplicate number and retain the unique one.
+    use XOR to eliminate duplicate numbers and retain the unique one.
+    
+    example:
+    a^a = 0
+    b^0 = b
+    a^b^a = b^a^a = b
     """
     def singleNumber(self, nums):
         """
