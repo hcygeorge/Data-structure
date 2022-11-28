@@ -5,7 +5,7 @@
 # 暴力解: 遍歷每個數字並比較是否與其他數字與重複，O(n^2), O(1)
 # 先排序後比對: O(nlogn), O(n)
 # Hashmap累計出現次數: O(n), O(n)
-# Bitwise Operation
+# Bitwise Operation: O(n), O(1), refer to https://ithelp.ithome.com.tw/articles/10213278?sc=pt
 
 class Solution(object):
     """
@@ -27,3 +27,20 @@ class Solution(object):
         for ele, count in hash_map.items():
             if count == 1:
                 return ele
+            
+class Solution2(object):
+    """
+    Bitwise operation
+    use XOR to eliminate duplicate number and retain the unique one.
+    """
+    def singleNumber(self, nums):
+        """
+        :type nums: List[int]
+        :rtype: int
+        """
+        res = nums[0]
+        
+        for i in range(1, len(nums)):
+            res ^= nums[i]
+            
+        return res
