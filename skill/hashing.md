@@ -13,8 +13,10 @@ Hash Table是由key-value pairs組成的資料結構，背後有hash function用
 可將set看成不儲存value的dictionary
 
 ## 應用範圍
-Hash Table常用於解決要求資料不重複或是計算重複次數的問題，例如:
+Hash Table常用於解決檢查重複資料或是計算重複次數的問題，例如:
 - Check If N and Its Double Exist
 - Contains Duplicate
+- Two Sum
+- Valid Anagram
 
 Hash Table的資料無順序性，通常不能處理需要排序的問題。
