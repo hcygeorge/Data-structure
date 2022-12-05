@@ -6,7 +6,6 @@
 # 用座標區分不同row, col或box的資料
 # TC: O(n^2)
 # SC: O(n)
-
 class Solution(object):
     def isValidSudoku(self, board):
         """
