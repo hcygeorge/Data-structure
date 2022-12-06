@@ -1,10 +1,14 @@
 # Valid Mountain Array
+# https://leetcode.com/problems/valid-mountain-array/description/
 # edge case: arr長度不夠、peak是第一個元素或最後一個
 # 我的做法是在迭代過程中檢查元素是否比前一個更大，找到peak後改變檢查條件
 # 官方解答將迭代過程分成找到peak前與找到peak後，這樣寫程式碼看起來更簡練
 
-# 我的解法
-class Solution(object):
+class Solution1(object):
+    """
+    First try
+    用peak用控制迭代時的檢查條件，在peak之前要遞增，之後則遞減。
+    """
     def validMountainArray(self, arr):
         """
         :type arr: List[int]
@@ -44,7 +48,10 @@ class Solution(object):
             return False
 
 # 官方解
-class Solution(object):
+class Solution2(object):
+    """
+    Official solution
+    """
     def validMountainArray(self, A):
         N = len(A)
         i = 0
@@ -62,3 +69,40 @@ class Solution(object):
             i += 1
 
         return i == N-1
+    
+# 第二次解答
+class Solution3(object):
+    """
+    Second try
+    將迭代分成上升和下降兩部分，但未將peak在開頭或結尾的edge case單獨出來。
+    """
+    def validMountainArray(self, arr):
+        """
+        :type arr: List[int]
+        :rtype: bool
+        """
+        length = len(arr)
+
+        # edge case
+        if length < 3:
+            return False
+
+        # climb up and find peak
+        for i in range(1, length):
+            if arr[i] > arr[i-1]:
+                continue
+            elif arr[i] == arr[i-1]:
+                return False
+            else:
+                if i == 1:
+                    return False
+                break
+
+        # go down
+        for j in range(i, length):
+            if arr[j] < arr[j-1]:
+                continue
+            else:
+                return False
+        
+        return True
