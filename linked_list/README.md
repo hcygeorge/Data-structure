@@ -1,6 +1,6 @@
 # Linked list
 
-- Linked list使用node紀錄資料和位置的結構，每個節點都有data和pointer
+- Linked list使用node記錄資料和位置的結構，每個節點都有data和pointer
 - 若是單向，則只有一個pointer next，雙向則有next和prev兩個pointer
 - 第一個節點稱為head
 - 最後一個節點pointer指向None
