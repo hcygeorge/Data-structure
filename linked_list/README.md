@@ -15,10 +15,17 @@ class ListNode:
         self.val = x
         self.next = None  # point to next node
 
-# iterate through a linked list
+# create linked list
+head = ListNode(1)
+ite = head
+ite.next = ListNode(2)
+ite = ite.next
+ite.next = ListNode(3)
+
+# iterate a linked list
 ite = head
 while ite:
-    print(ite.val)
+    print('data:', ite.val, 'next:', ite.next)
     ite = ite.next
 ```
 
