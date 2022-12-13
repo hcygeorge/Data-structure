@@ -29,6 +29,10 @@ while ite:
     ite = ite.next
 ```
 
+output\
+data: 1 next: <__main__.ListNode object at 0x000001B557A7E7F0>\
+data: 2 next: <__main__.ListNode object at 0x000001B557A7E828>\
+data: 3 next: None
 
 
 ## 適用範圍
