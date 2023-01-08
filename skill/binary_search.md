@@ -26,8 +26,7 @@ while lower <= upper:
     if isLarger(mid):
         lower = (mid+1)
     else:
-        if isEdgeCase(mid):
-            pass
+        if isAnswer(mid):
             return mid
         else:
             upper = (mid-1)
