@@ -4,6 +4,7 @@
 #         self.val = val
 #         self.left = left
 #         self.right = right
+# 遞迴解
 class Solution(object):
     def isSymmetric(self, root):
         """
@@ -22,5 +23,24 @@ class Solution(object):
         return self.isSym(l.right, r.left) and self.isSym(l.left, r.right)
 
 
-
-
+# 迭代解
+from collections import deque
+class Solution(object):
+    def isSymmetric(self, root):
+        """
+        :type root: TreeNode
+        :rtype: bool
+        """
+        if not root: return True
+        q = deque([(root.left, root.right)])
+        while q:
+            l, r = q.popleft()
+            if not l and not r:
+                continue
+            if l and r and l.val == r.val:
+                q.append((l.left, r.right))
+                q.append((l.right, r.left))
+            else:
+                return False
+        return True
+            
