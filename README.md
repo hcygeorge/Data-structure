@@ -1,3 +1,4 @@
 # My Leetcode
 
-每個目錄為同一類型的leetcode題目，目錄下再依照難易度區分題目
+## 目錄結構
+以資料結構或演算法分類leetcode題目，再依照難易度(easy, medium, hard)進一步分類
