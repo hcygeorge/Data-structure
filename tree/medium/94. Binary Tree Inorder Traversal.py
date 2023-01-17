@@ -7,6 +7,12 @@
 #         self.left = left
 #         self.right = right
 
+# inorder: 左根右
+# 1.遞迴到最底下的左子樹後取得值
+# 2. 走回上一層取得其根節點的值
+# 3. 然後走到右子樹，以右子樹為根檢查1, 2
+# 4. 1,2都做完才取右子樹值
+
 # Recursion solution
 class Solution(object):
     def inorderTraversal(self, root):
