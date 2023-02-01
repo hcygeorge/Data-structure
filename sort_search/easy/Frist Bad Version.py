@@ -22,30 +22,6 @@ class Solution(object):
             if isBadVersion(ver):
                 return ver
             
-# 遞迴解，會遇到maximum recursion depth exceeded(呼叫函數次數超過上限)的問題
-# 且找到的不一定是第一個bad version
-class Solution(object):
-    def firstBadVersion(self, n):
-        """
-        :type n: int
-        :rtype: int
-        """
-        def findBadVer(ver):
-            lower = 1
-            upper = ver
-            mid = (lower + upper) // 2
-            if not isBadVersion(mid):
-                upper = mid - 1
-            else:
-                if not isBadVersion(mid-1) or mid == 1:
-                    return mid
-                else:
-                    lower = mid + 1
-            
-            return findBadVer(ver)
-
-        return findBadVer(n)
-
 # Binary Search，時間複雜度O(logn)
 class Solution(object):
     def firstBadVersion(self, n):
@@ -53,16 +29,17 @@ class Solution(object):
         :type n: int
         :rtype: int
         """
-        lower = 1
-        upper = n
-        while lower <= upper:
-            mid = (lower + upper) // 2  # 求中位數
-            if not isBadVersion(mid):
-                lower = (mid+1)  # 更新下限
-            else:
-                if not isBadVersion(mid-1) or mid == 1:  # 確定是第一個bad version
-                    return mid
-                else:  # 更新上限
-                    upper = (mid-1)
+        left = 1  # 注意從1開始
+        right = n
 
-        return None  # 答案不存在
+        while left <= right:
+            mid = (left+right)//2
+
+            if not isBadVersion(mid):  # bad version在後面，更新下界
+                left = mid + 1
+            else:
+                if not isBadVersion(mid-1):  # 確認是第一個bad version
+                    return mid
+                right = mid -1  # bad version在前面，更新上界
+        
+        return None  # 若找不到bad version
