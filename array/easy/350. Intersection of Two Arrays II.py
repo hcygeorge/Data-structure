@@ -3,11 +3,9 @@
 # Each element in the result must appear as many times as it shows in both arrays
 # and you may return the result in any order.
 
-# Hash map統計出現次數，再比對出交集的資料，以出現次數最少的為主
-# O(n)
+# 建立hash map後，找出共同的元素並取最小值，O(n)
 # 注意min, max原本複雜度是O(n)，但這邊只固定比較2個資料大小，所以複雜度為O(1)
-# 其實可以只算nums1的資料出現次數，接著檢查nums2是否出現在hash map中，有的話資料為交集，hash map次數要減1
-class Solution1:
+class Solution:
     def intersect(self, nums1, nums2):
         """
         :type nums1: List[int]
@@ -35,6 +33,31 @@ class Solution1:
                 
         return res
     
+
+# 只算nums1的資料出現次數，接著檢查nums2是否出現在hash map中，有的話資料為交集，hash map次數要減1
+class Solution(object):
+    def intersect(self, nums1, nums2):
+        """
+        :type nums1: List[int]
+        :type nums2: List[int]
+        :rtype: List[int]
+        """
+        inter = []
+
+        dict01 = {}
+        for i in nums1:
+            if dict01.get(i):
+                dict01[i] += 1
+            else:
+                dict01[i] = 1
+        
+        for i in nums2:
+            if dict01.get(i) and dict01[i] > 0:
+                dict01[i] -= 1
+                inter.append(i)
+
+        return inter
+
     
 # 先排序後可用2 pointers解題
 # 用try except處理index out of range的問題(代表其中一個arr已經檢查完畢)
