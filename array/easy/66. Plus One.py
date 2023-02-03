@@ -19,4 +19,4 @@ class Solution(object):
             else:
                 digits[idx] = 0
                 
-        return [1] + digits
+        return [1] + digits  # 完整迭代完表示需要插入新位數
