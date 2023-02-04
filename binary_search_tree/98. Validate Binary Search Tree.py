@@ -27,3 +27,30 @@ class Solution(object):
             self.last = root.val
         
         return self.isValidBST(root.right)  # 移動到右子樹
+
+# 迭代解
+# 提示: 利用stack先收集所有左節點
+# pre代表前一個節點，curr為現在走道的節點
+class Solution(object):
+    def isValidBST(self, root):
+        """
+        :type root: TreeNode
+        :rtype: bool
+        """
+        if not root: return True
+        stack = []
+        pre = None
+        curr = root
+        while curr or stack:  # stack沒有了只表示節點的左子樹走訪完，但curr裡可能還有右子樹
+            while curr:  # 先將所有左節點加入stack
+                stack.append(curr)
+                curr = curr.left
+
+            curr = stack.pop()
+
+            if pre and curr.val <= pre.val:
+                return False
+            pre = curr
+            curr = curr.right
+        
+        return True
