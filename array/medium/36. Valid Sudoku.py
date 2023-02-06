@@ -1,9 +1,14 @@
 # https://leetcode.com/problems/valid-sudoku/description/
-# Determine if a 9 x 9 Sudoku board is valid. Only the filled cells need to be validated according to the following rules:
+# Determine if a 9 x 9 Sudoku board is valid.
+# Only the filled cells need to be validated according to the following rules:
+# Each row must contain the digits 1-9 without repetition.
+# Each column must contain the digits 1-9 without repetition.
+# Each of the nine 3 x 3 sub-boxes of the grid must contain the digits 1-9 without repetition
 
 # 用enumerate生成每筆資料的座標
 # 用//(整除)得到每個sub box的座標
 # 用座標區分不同row, col或box的資料
+# 一個list可以不同行列的值，只用記錄第幾行列來區分
 # TC: O(n^2)
 # SC: O(n)
 class Solution(object):
