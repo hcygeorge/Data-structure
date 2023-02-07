@@ -27,8 +27,11 @@ class Solution(object):
         for ele, count in hash_map.items():
             if count == 1:
                 return ele
-            
-class Solution2(object):
+
+
+# 利用XOR特性，0^a=a, a^a=0, 交換律
+# 寫法一 
+class Solution(object):
     """
     Bitwise operation
     use XOR to eliminate duplicate numbers and retain the unique one.
@@ -49,3 +52,16 @@ class Solution2(object):
             res ^= nums[i]
             
         return res
+    
+#寫法二
+class Solution(object):
+    def singleNumber(self, nums):
+        """
+        :type nums: List[int]
+        :rtype: int
+        """
+        pre = 0
+        while nums:
+            pre ^= nums.pop()
+
+        return pre
