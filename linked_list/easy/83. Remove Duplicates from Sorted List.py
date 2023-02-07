@@ -4,10 +4,11 @@
 #         self.val = val
 #         self.next = next
 
-# 建立迭代器ite用於檢查linked list
-# 當下個節點(temp)存在且值和前者相同，則繼續檢查
-# 直到節點不存在或值不相同，ite.next指向該節點(等於跳過中間相同的值)
-# 接著從下個值(ite.next)開始繼續檢查
+# 建立變數curr指向當下的node
+# 變數post指向下一個node
+# 持續檢查post是否存在且值和curr相同
+# 直到節點不存在或值不相同，將post接在curr後面(等於跳過中間重複的值)
+# 接著curr移動到下個值curr.next開始繼續檢查
 # 檢查完畢後回傳head
 # O(n);O(1)
 class Solution(object):
@@ -16,12 +17,13 @@ class Solution(object):
         :type head: ListNode
         :rtype: ListNode
         """
-        ite = head
-        while ite:
-            temp = ite.next
-            while temp and temp.val == ite.val:
-                temp = temp.next
-            ite.next = temp
-            ite = ite.next
-        
+        curr = head
+        while curr:
+            post = curr.next
+            while post and post.val == curr.val:
+                post = post.next
+
+            curr.next = post
+            curr = curr.next
+
         return head
