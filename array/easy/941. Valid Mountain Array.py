@@ -122,7 +122,6 @@ class Solution(object):
         pre = arr[0]
         # climb up and find peak
         for i in range(1, len_arr):
-            print(1, arr[i])
             if arr[i] > pre:
                 pre = arr[i]
             elif arr[i] == pre:
@@ -137,7 +136,6 @@ class Solution(object):
 
         # go down
         for j in range(i, len_arr):
-            print(arr[j], pre)
             if arr[j] < pre:
                 pre = arr[j]
             else:
