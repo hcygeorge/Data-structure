@@ -1,3 +1,4 @@
+# try:2
 # Merge Two Sorted Lists
 # https://leetcode.com/problems/merge-two-sorted-lists/description/
 # Definition for singly-linked list.
@@ -5,6 +6,13 @@
 #     def __init__(self, val=0, next=None):
 #         self.val = val
 #         self.next = next
+
+# 提示
+# 1. 建立新的head = ListNode儲存merged list
+# 2. 用prev指向最後一個節點
+# 3. 迭代條件是list1 list2兩個都要有節點
+# 4. prev.next接上還有剩節點的list
+# 5. 記得head的下一個才是真的起點
 
 # 先建立一個空的head作為merged list的head
 # 建立prev負責連接node
