@@ -22,3 +22,30 @@ for i in range(remove_idx, length - 1):
 length -= 1
 print(arr[:length])
 ```
+
+## 常見的坑
+
+*生成二維陣列*
+請勿使用`[[0]*n]*m`複製陣列，這m個陣列是互相聯動。
+請用[[0]*n for _ in range(m)]
+
+*複製多種型別元素或多維度的陣列*
+```python
+import copy
+copy.deepcopy(a)
+```
+
+*計算元素個數*
+```python
+num = [1, 2, 2, 3]
+num.count(2)
+```
+
+*內建排序*
+```python
+num.sort()  # inplace
+sorted(num)  # return new one
+```
+
+*用list實作queue*\
+沒有效率，因為取出第一個元素時會移動後面的元素，請用deque

@@ -1,3 +1,4 @@
+# try:2
 # Definition for a binary tree node.
 # class TreeNode(object):
 #     def __init__(self, val=0, left=None, right=None):
@@ -14,3 +15,42 @@ class Solution(object):
         if not p and not q: return True
         if not p or not q: return False
         return p.val == q.val and self.isSameTree(p.left, q.left) and self.isSameTree(p.right, q.right)
+
+class Solution(object):
+    def isSameTree(self, p, q):
+        """
+        :type p: TreeNode
+        :type q: TreeNode
+        :rtype: bool
+        """
+        if not p and not q: return True
+        if not p or not q: return False
+        
+        if p.val != q.val:
+            return False
+        else:
+            return self.isSameTree(p.left, q.left) and self.isSameTree(p.right, q.right)
+
+
+from collections import deque
+class Solution(object):
+    def isSameTree(self, p, q):
+        """
+        :type p: TreeNode
+        :type q: TreeNode
+        :rtype: bool
+        """
+
+        d = deque([(p, q)])
+        
+        while d:
+            pq = d.popleft()
+            if not pq[0] and not pq[1]: continue
+            if not pq[0] or not pq[1]: return False
+
+            print(pq[0].val,pq[1].val)
+            if pq[0].val == pq[1].val:
+                d.append((pq[0].left, pq[1].left))
+                d.append((pq[0].right, pq[1].right))
+            else:
+                return False

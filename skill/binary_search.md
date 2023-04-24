@@ -22,6 +22,7 @@ upper = n
 # 使用中位數檢查數據
 mid = (lower + upper) // 2  # 整除
 # 執行條件:只要lower<=upper，代表還沒找到唯一答案
+# 注意有等號，會導致最後一次lower被加1，剛號是插入新值的位置
 while lower <= upper:
     if isLarger(mid):
         lower = (mid+1)

@@ -1,8 +1,14 @@
+# try:2
 # Definition for singly-linked list.
 # class ListNode(object):
 #     def __init__(self, val=0, next=None):
 #         self.val = val
 #         self.next = next
+
+# 錯誤1:curr應指向當下而非下一個node
+# pre = head
+# curr = head.next
+# 錯誤2:檢查post忘了考慮post存在與否
 
 # 建立變數curr指向當下的node
 # 變數post指向下一個node
@@ -32,3 +38,4 @@ class Solution(object):
             curr = curr.next
 
         return head
+
