@@ -18,7 +18,7 @@ class Solution(object):
         return p.val == q.val and self.isSameTree(p.left, q.left) and self.isSameTree(p.right, q.right)
 
 
-# 思路: 將p,q存入deque中，對deque迭代，每次檢查完都先將p,q的座又子樹存入deque，以便繼續檢查
+# 思路: 將p,q存入deque中，對deque迭代，每次檢查完都先將p,q的左右子樹存入deque，以便繼續檢查
 from collections import deque
 class Solution(object):
     def isSameTree(self, p, q):

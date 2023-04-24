@@ -1,4 +1,4 @@
-# try:2
+# try:3
 # Definition for singly-linked list.
 # class ListNode(object):
 #     def __init__(self, val=0, next=None):
@@ -18,9 +18,11 @@
 # 檢查完畢後回傳head
 # O(n);O(1)
 
-# 犯錯1: 沒有用curr指向當下的node
-# 犯錯2: 沒有用第二層while檢查post
-# 犯錯3: post.val == curr.val應作為while的條件，否則while post會遍歷所有node
+# 犯錯
+# 1: 沒有用curr指向當下的node
+# 2: 沒有用第二層while檢查post
+# 3: post.val == curr.val應作為while的條件，否則while post會遍歷所有node
+# 4: post = curr.next放在while curr之前
 
 class Solution(object):
     def deleteDuplicates(self, head):

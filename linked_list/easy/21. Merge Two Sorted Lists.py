@@ -33,21 +33,21 @@ class Solution(object):
         :type list2: Optional[ListNode]
         :rtype: Optional[ListNode]
         """
-        head = ListNode(None)  # head node of output
-        prev = head  # use prev to connect nodes
+        merged = ListNode(None)  # head node of output
+        p = merged  # use p to connect nodes
         
         # loop until one of the list is empty
         while list1 and list2:
             if list1.val <= list2.val:  # equal sign affects when list1 == list2
-                prev.next = list1
+                p.next = list1
                 list1 = list1.next
             else:
-                prev.next = list2
+                p.next = list2
                 list2 = list2.next
-            prev = prev.next  # don't forget to point to next node!
+            p = p.next  # don't forget to point to next node!
                 
         # the rest of the nodes in one of the list can be attatched behind
-        prev.next = list1 or list2 
+        p.next = list1 or list2 
         
         # remind that head is None, the next node is the real head
-        return head.next
+        return merged.next
