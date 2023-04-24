@@ -14,6 +14,10 @@
 # 比較大小直到其中一個list空了，則剩下的node可以整串接到merged list後面
 # 記得一開始建立的head是空的，因此下個node才是真正的head
 
+# 犯錯1: 沒有用curr指向當下的node
+# 犯錯2: curr連接後沒有移動到下個node
+# 犯錯3: 沒有把剩下的list連接在curr後面
+
 class Solution(object):
     def mergeTwoLists(self, list1, list2):
         """

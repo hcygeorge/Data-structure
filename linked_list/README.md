@@ -5,6 +5,10 @@
 - 第一個節點稱為head
 - 最後一個節點pointer指向None
 
+## 常犯錯誤
+1. 沒有用curr指向當下的node
+2. 回傳的list要從next開始(因為開頭是為了連接node臨時用的head)
+
 ## 類別
 
 ```python
