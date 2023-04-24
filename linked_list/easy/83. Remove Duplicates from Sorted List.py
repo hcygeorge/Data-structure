@@ -18,10 +18,10 @@
 # 檢查完畢後回傳head
 # O(n);O(1)
 
-
 # 犯錯1: 沒有用curr指向當下的node
 # 犯錯2: 沒有用第二層while檢查post
-# 犯錯3: post.val == curr.val應作為whil的條件，否則while post會遍歷所有node
+# 犯錯3: post.val == curr.val應作為while的條件，否則while post會遍歷所有node
+
 class Solution(object):
     def deleteDuplicates(self, head):
         """
