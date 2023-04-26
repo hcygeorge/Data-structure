@@ -12,11 +12,11 @@ class Solution(object):
         l = 0
         counter = {}
 
-        # count number of char
+        # 用字典儲存每個字出現次數
         for char in s:
             counter[char] = counter.get(char, 0) + 1
 
-        # accumulate length of palindrome
+        # 再根據出現次數計算回文長度
         for k, v in counter.items():
             l += (v // 2) * 2
             # 利用l % 2 == 0判斷回文是否還沒有加上中間字
