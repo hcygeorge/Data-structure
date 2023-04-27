@@ -6,8 +6,9 @@
 
 # 適用於不要求in place(空間複雜度O(1))的排序
 # 若要in place則複雜度會提高，建議用quick sort
-# 有個例外是若排序linked list，可以透過改next保持空間複雜度O(1)
+# 有個例外是若排序linked list，則可以保持空間複雜度O(1)，詳情見0148. sort list
 
+# array的merge sort
 def merge_sort(data):
     # 當數列長度=1，回傳數列
     if len(data) < 2:
