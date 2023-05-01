@@ -3,6 +3,13 @@
 # Each element in the result must appear as many times as it shows in both arrays
 # and you may return the result in any order.
 
+# tips:
+# 只用dict計算nums1出現次數，走訪nums2時一邊扣掉次數一邊將元素加入result
+
+# blined spot:
+# 扣掉次數一邊將元素加入result可以在走訪nums2時一起做，不需要分開處理
+
+
 # 建立hash map後，找出共同的元素並取最小值，O(n)
 # 注意min, max原本複雜度是O(n)，但這邊只固定比較2個資料大小，所以複雜度為O(1)
 class Solution:
@@ -84,3 +91,28 @@ class Solution2:
                 break
         
         return res
+    
+
+# second try
+class Solution(object):
+    def intersect(self, nums1, nums2):
+        """
+        :type nums1: List[int]
+        :type nums2: List[int]
+        :rtype: List[int]
+        """
+        counter = {}
+        for i in nums1:
+            counter[i] = counter.get(i, 0) + 1
+
+        for j in nums2:
+            counter[j] = counter.get(j, 0) - 1
+
+        inter = []
+        for i in nums1:
+            if counter[i] <= 0:
+                inter.append(i)
+            elif counter[i] > 0:
+                counter[i] -= 1
+        
+        return inter
