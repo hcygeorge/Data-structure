@@ -1,9 +1,8 @@
 # Search Insert Position
 
 # tips
-# 使用binary search
-# 迭代條件必須包括lo=up
-# 當lo=up時，若仍未找到值，則lo會被加1，此時lo就是插入新值的位置
+# 在以排序的數列找數字位置，可使用binary search
+# 當lower=uppper時，若仍未找到值，則lower會被加1，此時lower就是插入新值的位置
 
 # first try
 class Solution(object):
