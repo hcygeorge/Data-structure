@@ -1,7 +1,7 @@
 # Search Insert Position
 
 # tips
-# 在以排序的數列找數字位置，可使用binary search
+# 在已排序的數列找數字位置，可使用binary search
 # 當lower=uppper時，若仍未找到值，則lower會被加1，此時lower就是插入新值的位置
 
 # first try
