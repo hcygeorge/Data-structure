@@ -22,7 +22,7 @@
 # attempt count: 3
 
 # sample code
-nums = [-1,0,3,5,9,12]
+nums = [-1,0,3,5,9,12]  # already sorted and non-repeated array
 target = 9
 
 def binarySearch(nums, target):
