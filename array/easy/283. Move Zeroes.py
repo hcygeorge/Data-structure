@@ -1,7 +1,7 @@
 # Given an integer array nums, 
 # move all 0's to the end of it while maintaining the relative order of the non-zero elements.
 
-# tip:
+# tipss:
 # 題目要求inplace
 # 左右指針可以將0排到最後面，但是無法讓非0維持原本順序
 # 快慢指針負責指著最後一個0值等著與後面交換
