@@ -5,6 +5,17 @@
 #         self.left = left
 #         self.right = right
 
+# tips:
+# 遞迴解
+# 1. 檢查p,q是否存在
+# 2. 檢查p,q值是否相等
+# 3. 若相等則再遞迴兩者的left,right
+# 迭代解
+# 將p,q存入queue中(先進先出)，對queue迭代，
+# 每次檢查完都先將p,q的左右子樹存入deque，以便繼續檢查
+
+# blind spot:
+# 注意p,q都不存在時不代表整棵樹相同，因此不能直接回傳True，需要跳過該次迭代(continue)
 
 # attempt count: 4
 
