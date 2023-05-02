@@ -1,10 +1,12 @@
-# try:3
 # Definition for a binary tree node.
 # class TreeNode(object):
 #     def __init__(self, val=0, left=None, right=None):
 #         self.val = val
 #         self.left = left
 #         self.right = right
+
+
+# attempt count: 4
 
 class Solution(object):
     def isSameTree(self, p, q):
@@ -47,4 +49,27 @@ class Solution(object):
             else:
                 return False
         # 通過全部檢查，代表兩樹相同
+        return True
+
+# 4th try: 迭代解，以list取代deque，把p,q存在與相等合併一起檢查
+class Solution(object):
+    def isSameTree(self, p, q):
+        """
+        :type p: TreeNode
+        :type q: TreeNode
+        :rtype: bool
+        """
+
+        queue = [(p, q)]
+
+        while queue:
+            p, q = queue.pop(0)
+            if p and q and p.val == q.val:
+                queue.append((p.left, q.left))
+                queue.append((p.right, q.right))
+            elif not p and not q:
+                continue
+            else:
+                return False
+
         return True
