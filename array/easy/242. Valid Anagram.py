@@ -3,9 +3,10 @@
 # typically using all the original letters exactly once.
 
 # tips: 
+# 先檢查字串長度是否一致
 # 統計s的字出現次數，然後扣掉t的字出現次數，若次數全為0則代表為anagram
-# 事先檢查s和t長度和字出現次數在扣除前已經是0，就不用檢查是否次數是否全為0
-# 補充: 實際工作時可用Counter處理此問題
+# 扣掉0之前可先檢查字是否存在
+# 實務上時可用Counter處理此問題
 
 # blind spot:
 # 記得先檢查字串長度是否一致
