@@ -10,6 +10,7 @@
 # blind spot:
 # 記得先檢查字串長度是否一致
 
+# first try: hash table解
 class Solution(object):
     def isAnagram(self, s, t):
         """
@@ -34,13 +35,13 @@ class Solution(object):
             else:
                 count[t[idx]] -= 1
                 
-        # for k, v in count.items():
-        #     if v != 0:
-        #         return False
+        for k, v in count.items():
+            if v != 0:
+                return False
         
         return True
     
-# second try: hash table解
+# second try: hash table解，程式碼有比較簡練
 class Solution(object):
     def isAnagram(self, s, t):
         """
