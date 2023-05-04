@@ -17,6 +17,9 @@ class Solution(object):
         p = 1
         
         while p < len(strs):
+            if strs[p] == '':
+                return ''
+                
             p1, p2 = 0, 0
             while p1 < len(prefix) and p2 < len(strs[p]):
                 if prefix[p1] == strs[p][p2]:
@@ -30,4 +33,5 @@ class Solution(object):
             p += 1
             
         return prefix
+            
             
