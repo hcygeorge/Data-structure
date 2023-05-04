@@ -14,7 +14,7 @@
 # 用指針走訪比for loop好，因為可以隨時跳出迴圈檢查條件，再從指針停留的地方繼續走
 # 這題的例外很多，建議明確將空格、正負號或數字分開檢查，符合條件再繼續，不建議一次檢查所有狀況
 
-# first try: 
+# first try: 想同時檢查空格和正負號導致code凌亂
 class Solution(object):
     def myAtoi(self, s):
         """
@@ -67,7 +67,8 @@ class Solution(object):
             return -2**31
         else:
             return result
-        
+
+# first try: 分開檢查空格、正負號或數字，code比較優雅
 class Solution(object):
     def myAtoi(self, s):
         """
