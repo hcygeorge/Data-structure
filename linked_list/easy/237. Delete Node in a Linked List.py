@@ -10,7 +10,7 @@ class Solution(object):
         :type node: ListNode
         :rtype: void Do not return anything, modify node in-place instead.
         """
-        # 將現在的node取代下個node，沒有變數指向下個node指向的物件，GC會自動刪除該物件
+        # 將現在的node取代下個node，沒有變數指向下個node指向的物件，GC會自動回收該物件
         node.val = node.next.val
         node.next = node.next.next
         
