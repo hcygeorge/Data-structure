@@ -47,7 +47,7 @@ class Solution(object):
         :rtype: bool
         """
         # only one node case
-        if node.next == None:
+        if head.next == None:
             return True
 
         # find middle node
