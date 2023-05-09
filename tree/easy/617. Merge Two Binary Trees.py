@@ -5,6 +5,12 @@
 #         self.left = left
 #         self.right = right
 
+# tips:
+# 先檢查root1, root2存在性
+# 遞迴解: 將root2.val加到root1.val，遞迴的對left, right做一樣的事情
+# 迭代解: 將root1和root2加到stack，再走訪stack將root2.val加到root1.val，將left, right加入stack
+# 注意每次先檢查root2是否存在，再檢查root1，只知道其中一個不存在無法決定處理方法
+
 # 遞迴解
 class Solution(object):
     def mergeTrees(self, root1, root2):
@@ -67,6 +73,63 @@ class Solution(object):
                 stack.append((t[0].right, t[1].right)) 
         
         # 返回合併的root1
+        return root1
+
+# second try: same as before
+class Solution(object):
+    def mergeTrees(self, root1, root2):
+        """
+        :type root1: TreeNode
+        :type root2: TreeNode
+        :rtype: TreeNode
+        """
+        # deal with 0 node
+        if not root1 and not root2:
+            return None
+        if not root1 or not root2:
+            return root1 or root2
+
+        # sum up overlap node value
+        root1.val += root2.val
+        root1.left = self.mergeTrees(root1.left, root2.left)
+        root1.right = self.mergeTrees(root1.right, root2.right)
+
+        return root1
+    
+# second try:
+from collections import deque
+class Solution(object):
+    def mergeTrees(self, root1, root2):
+        """
+        :type root1: TreeNode
+        :type root2: TreeNode
+        :rtype: TreeNode
+        """
+        if not root1 and not root2:
+            return None
+        if not root1 or not root2:
+            return root1 or root2
+
+        queue = deque([(root1, root2)])
+
+        while queue:
+            l, r = queue.popleft()
+
+            if not r:
+                continue
+
+            l.val += r.val
+            
+            if l.left:
+                queue.append((l.left, r.left))
+            else:
+                l.left = r.left
+
+            if l.right:
+                queue.append((l.right, r.right))
+            else:
+                l.right = r.right
+
         return root1
 
 
