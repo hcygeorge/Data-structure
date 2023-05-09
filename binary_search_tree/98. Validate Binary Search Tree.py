@@ -18,9 +18,11 @@ class Solution(object):
         if not root:
             return True
 
+        # 會一直往左走到底
         if not self.isValidBST(root.left):  # 左子樹不是BST，則母樹也不是BST
             return False
 
+        # 從左邊最底部開始往回走，值應該要越來越大
         if root.val <= self.last:
             return False
         else:
