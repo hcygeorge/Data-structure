@@ -10,6 +10,9 @@
 # 遞迴時以一個counter紀錄元素在第幾層
 # 迭代時則以counter紀錄該層有幾個元素，以用來決定對deque的迭代次數，到下一層時再重新計算
 
+# blind spot:
+# queue長度代表該層長度，利用queue長度決定要迭代幾次，可確保每一層元素都存在同一個陣列內
+
 # 遞迴解
 class Solution(object):
     def levelOrder(self, root):
