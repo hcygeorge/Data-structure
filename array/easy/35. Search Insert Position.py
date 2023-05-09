@@ -1,9 +1,10 @@
 # Search Insert Position
 
-# 提示
-# 使用binary search
-# 迭代條件必須包括lo=up
-# 當lo=up時，若仍未找到值，則lo會被加1，此時lo就是插入新值的位置
+# tips
+# 在已排序的數列找數字位置，可使用binary search
+# 當lower=uppper時，若仍未找到值，則lower會被加1，此時lower就是插入新值的位置
+
+# first try
 class Solution(object):
     def searchInsert(self, nums, target):
         """
@@ -25,5 +26,25 @@ class Solution(object):
         
         return lo
 
+# second try
+class Solution(object):
+    def searchInsert(self, nums, target):
+        """
+        :type nums: List[int]
+        :type target: int
+        :rtype: int
+        """
+        lower, upper = 0, len(nums) - 1
+
+        while lower <= upper:
+            mid = (lower + upper) // 2
+            if nums[mid] < target:
+                lower = mid + 1
+            elif nums[mid] > target:
+                upper = mid - 1
+            else:
+                return mid
+        
+        return lower
 
 
