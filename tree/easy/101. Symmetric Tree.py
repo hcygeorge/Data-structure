@@ -74,6 +74,13 @@ class Solution(object):
 
             return True
 
+            # 這樣寫也可以
+            # if left.val == right.val and l and r:
+            #     return True
+
+            # return False
+
+
         return isSym(root.left, root.right)
     
 # second try: 迭代解，邏輯與上次相同
