@@ -1,8 +1,10 @@
 # Given an integer array nums where the elements are sorted in ascending order, convert it to a 
 # height-balanced binary search tree.
 
-# tips: 在嚴格遞增數列中，取中位數，左邊一定比中位數小，可為左子樹，右邊一定比中位數大，可為右子樹
+# tips:
+# 在嚴格遞增數列中，取中位數，左邊一定比中位數小，可為左子樹，右邊一定比中位數大，可為右子樹
 # 建立createNode函數遞迴的取中位數並生成節點與左右子樹
+# 記得有停止條件lower> upper
 
 # first try
 class Solution(object):
