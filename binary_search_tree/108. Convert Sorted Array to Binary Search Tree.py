@@ -1,9 +1,10 @@
-# Definition for a binary tree node.
-# class TreeNode(object):
-#     def __init__(self, val=0, left=None, right=None):
-#         self.val = val
-#         self.left = left
-#         self.right = right
+# Given an integer array nums where the elements are sorted in ascending order, convert it to a 
+# height-balanced binary search tree.
+
+# tips: 在嚴格遞增數列中，取中位數，左邊一定比中位數小，可為左子樹，右邊一定比中位數大，可為右子樹
+# 建立createNode函數遞迴的取中位數並生成節點與左右子樹
+
+# first try
 class Solution(object):
     def sortedArrayToBST(self, nums):
         """
