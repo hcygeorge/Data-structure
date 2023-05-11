@@ -1,9 +1,9 @@
 # Valid Mountain Array
 # https://leetcode.com/problems/valid-mountain-array/description/
 # edge case: arr長度不夠、peak是第一個元素或最後一個
-# 我的做法是在迭代過程中檢查元素是否比前一個更大，找到peak後改變檢查條件
-# 官方解答將迭代過程分成找到peak前與找到peak後，這樣寫程式碼看起來更簡練
 
+
+# first try: 迭代中檢查元素是否比前一個更大，找到peak後改變檢查條件
 class Solution(object):
     """
     First try
@@ -47,7 +47,7 @@ class Solution(object):
         else:  # edge case 2: peak is the last element
             return False
 
-# 官方解
+# 官方解: 迭代過程分成找到peak前與找到peak後，這樣寫程式碼看起來更簡練
 class Solution(object):
     """
     Official solution
