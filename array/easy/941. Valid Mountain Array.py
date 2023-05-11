@@ -70,7 +70,7 @@ class Solution(object):
 
         return i == N-1
     
-# 第二次解答
+# 第二次
 class Solution(object):
     """
     Second try
@@ -107,7 +107,7 @@ class Solution(object):
         
         return True
 
-# 第三次解，加入edge case判斷
+# 第三次，加入edge case判斷
 class Solution(object):
     def validMountainArray(self, arr):
         """
@@ -141,4 +141,34 @@ class Solution(object):
             else:
                 return False
 
+        return True
+    
+# fourth try: use pointer
+class Solution(object):
+    def validMountainArray(self, arr):
+        """
+        :type arr: List[int]
+        :rtype: bool
+        """
+        if len(arr) < 3:
+            return False
+
+        p = 1
+        while p < len(arr):
+            if arr[p] > arr[p-1]:
+                p += 1
+            else:
+                break
+            
+        peak = p - 1
+        if peak == 0 or peak == len(arr)-1:
+            return False
+
+        while p < len(arr):
+            if arr[p] < arr[p-1]:
+                p += 1
+            else:
+                return False
+                
+        
         return True
