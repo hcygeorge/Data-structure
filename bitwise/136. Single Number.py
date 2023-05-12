@@ -5,7 +5,7 @@
 # 暴力解: 遍歷每個數字並比較是否與其他數字與重複，O(n^2), O(1)
 # 先排序後比對: O(nlogn), O(n)
 # Hashmap累計出現次數: O(n), O(n)
-# Bitwise Operation: O(n), O(1), refer to https://ithelp.ithome.com.tw/articles/10213278?sc=pt
+# Bitwise Operation: O(n), O(1)
 
 class Solution(object):
     """
@@ -81,3 +81,5 @@ class Solution(object):
         for k, v in num_count.items():
             if v == 1:
                 return k
+            
+            
