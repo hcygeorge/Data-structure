@@ -6,7 +6,10 @@
 #         self.right = right
 
 # 提示:
-# 不用一次收集完同一層的元素，而是先建立每層專用的list，走訪樹時根據層級將元素加入對應list
+# 這題麻煩在怎麼走訪時怎麼判斷和紀錄節點屬於哪一層
+# 可以建立變數level負責記錄層數，再根據level索引儲存在res中第幾個list
+# 建立輔助函數，參數為走訪的node、儲存node值的res(list of list)、與node的層數level
+# level可用於判斷何時在res內新增一層，走訪樹時根據層級將元素加入對應list
 # 遞迴時以一個counter紀錄元素在第幾層
 # 迭代時則以counter紀錄該層有幾個元素，以用來決定對deque的迭代次數，到下一層時再重新計算
 
@@ -59,11 +62,41 @@ class Solution(object):
                 node = q.popleft()
                 level.append(node.val)
 
-                # 將下一層的節點先放入queue，等下次迭代在處理
+                # 將下一層的節點先放入queue，等下次迭代再處理
                 if node.left:
                     q.append(node.left)
                 if node.right:
                     q.append(node.right)
             res.append(level)
+
+        return res
+    
+
+# second try: 迭代解，因為有記錄level，所以不用先計算節點個數決定迭代個數，也可用stack取代deque
+class Solution(object):
+    def levelOrder(self, root):
+        """
+        :type root: TreeNode
+        :rtype: List[List[int]]
+        """
+        if not root:
+            return []
+
+        stack = [(0, root)]  # 同時記錄level
+        res = []
+
+        while stack:
+            level, node = stack.pop()
+
+            if not node:
+                continue
+
+            if level > len(res) - 1:
+                res.append([node.val])
+            else:
+                res[level].append(node.val)
+
+            stack.append((level+1, node.right))  # stack先進後出
+            stack.append((level+1, node.left))
 
         return res
