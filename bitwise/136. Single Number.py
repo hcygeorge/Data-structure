@@ -65,3 +65,19 @@ class Solution(object):
             pre ^= nums.pop()
 
         return pre
+    
+
+# second try: hash map
+class Solution(object):
+    def singleNumber(self, nums):
+        """
+        :type nums: List[int]
+        :rtype: int
+        """
+        num_count = {}
+        for i in nums:
+            num_count[i] = num_count.get(i, 0) + 1
+
+        for k, v in num_count.items():
+            if v == 1:
+                return k
