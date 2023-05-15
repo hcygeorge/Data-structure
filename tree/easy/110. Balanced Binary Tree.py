@@ -11,6 +11,11 @@
 # 否則回傳該子樹的高度，包括節點自己加上左右子樹最高的那一個，1+max(left, right)
 # 呼叫並判斷check(root)的結果是否為-1
 
+# blind spot:
+# 檢查高度差應該放在輔助函數內，否則只會比較root兩子樹的高度差
+# 高度差大於1時要回傳-1代表不平衡，回傳False會被當成0，回傳非數字會導致abs(l-r)出錯
+# 只要其中一次遞迴回傳-1，整個函數就一定回傳-1
+
 class Solution(object):
     def isBalanced(self, root):
         """
@@ -52,3 +57,27 @@ class Solution(object):
             return 1 + max(left, right)
         
         return check_depth(root) != -1
+
+# third try:
+class Solution(object):
+    def isBalanced(self, root):
+        """
+        :type root: TreeNode
+        :rtype: bool
+        """
+        if not root:
+            return True
+        
+        return self.depth(root) != -1
+    
+    def depth(self, node):
+        if not node:
+            return 0
+
+        left = self.depth(node.left)
+        right = self.depth(node.right)
+
+        if abs(left - right) > 1 or left == -1 or right == -1:
+            return -1
+
+        return 1 + max(left, right)
