@@ -104,3 +104,47 @@ class Solution(object):
             q.append((left.right, right.left))
 
         return True
+    
+# third try: 遞迴解，邏輯與前次相同，只是將輔助函數移到外面
+class Solution(object):
+    def isSymmetric(self, root):
+        """
+        :type root: TreeNode
+        :rtype: bool
+        """
+        return self._isSym(root.left, root.right)
+
+    def _isSym(self, left, right):
+        if not left and not right:
+            return True
+        if not left or not right:
+            return False
+
+        return left.val == right.val \
+            and self._isSym(left.left, right.right) \
+            and self._isSym(left.right, right.left)
+
+# third try: 迭代解，改用stack
+class Solution(object):
+    def isSymmetric(self, root):
+        """
+        :type root: TreeNode
+        :rtype: bool
+        """
+
+        stack = [(root.left, root.right)]
+
+        while stack:
+            l, r = stack.pop()
+
+            if not l and not r:
+                continue
+            if not l or not r:
+                return False
+            if l.val != r.val:
+                return False
+            
+            stack.append((l.left, r.right))
+            stack.append((l.right, r.left))
+        
+        return True
