@@ -9,6 +9,9 @@
 # 利用self.isValidBST(root.left)遞迴的走到最底部的左子樹
 # 或建立curr迭代的將節點放入stack
 
+# blind spot:
+# 右子樹等所有左子樹遞迴完才檢查
+
 # 遞迴解
 # 提示: 用inorder走訪BST，必會得到嚴格遞增的陣列
 class Solution(object):
