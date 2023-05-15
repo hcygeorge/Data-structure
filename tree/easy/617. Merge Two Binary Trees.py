@@ -9,7 +9,11 @@
 # 先檢查root1, root2存在性
 # 遞迴解: 將root2.val加到root1.val，遞迴的對left, right做一樣的事情
 # 迭代解: 將root1和root2加到stack，再走訪stack將root2.val加到root1.val，將left, right加入stack
-# 注意每次先檢查root2是否存在，再檢查root1，只知道其中一個不存在無法決定處理方法
+
+# blind spot:
+# 記得遞迴函數要回傳給root左右子樹
+# 注意每次迭代先檢查root2是否存在，再檢查root1，只知道其中一個不存在無法決定處理方法
+# 當root1為None，root1=root2無法改變root1，必須在上一次迭代用(父節點存在)root1.left = root2.left
 
 # 遞迴解
 class Solution(object):
@@ -26,7 +30,7 @@ class Solution(object):
         
         root1.val = root1.val + root2.val  # 都存在，合併值於第一棵樹
 
-        # 用同樣邏輯檢查並合併左子樹與柚子數
+        # 用同樣邏輯檢查並合併左子樹與右子樹
         root1.left = self.mergeTrees(root1.left, root2.left)
         root1.right = self.mergeTrees(root1.right, root2.right)
 
