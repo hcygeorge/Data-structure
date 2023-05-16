@@ -100,3 +100,29 @@ class Solution(object):
             stack.append((level+1, node.left))
 
         return res
+    
+# third try: 遞迴解，把輔助函數獨立出來，解題邏輯不變
+class Solution(object):
+    def levelOrder(self, root):
+        """
+        :type root: TreeNode
+        :rtype: List[List[int]]
+        """
+        res = []
+        level = 0
+
+        return self.traversal(root, res, level)
+
+    def traversal(self, node, res, level):
+        if not node:
+            return res
+        
+        if level + 1 > len(res):
+            res.append([node.val])
+        else:
+            res[level].append(node.val)
+        
+        self.traversal(node.left, res, level+1)
+        self.traversal(node.right, res, level+1)
+
+        return res
