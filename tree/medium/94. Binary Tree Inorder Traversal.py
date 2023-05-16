@@ -84,3 +84,22 @@ class Solution(object):
         self.inorder(root, res)
 
         return res
+
+# third try: 遞迴解
+class Solution(object):
+    def inorderTraversal(self, root):
+        """
+        :type root: TreeNode
+        :rtype: List[int]
+        """
+        res = []
+        self._traversal(root, res)
+        return res
+
+    def _traversal(self, node, res):
+        if not node:
+            return res
+            
+        self._traversal(node.left, res)
+        res.append(node.val)
+        self._traversal(node.right, res)
