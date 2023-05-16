@@ -5,6 +5,11 @@
 #         self.left = left
 #         self.right = right
 
+# tips:
+# 利用BST左子樹小於根，右子樹大於根的特性
+# 從root開始比較root.val, val，如果root.val小則往右子樹找，否則往左子樹找，相等則回傳
+# 記得要回傳左右子樹
+
 # 遞迴解
 # 提示: 遞迴的input跟searchBST相同，不用建立helper函數
 class Solution(object):
