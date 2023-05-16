@@ -42,3 +42,51 @@ class Solution(object):
                 pointer = pointer.right
 
         return None
+
+
+# second try:用inorder找val
+class Solution(object):
+    def searchBST(self, root, val):
+        """
+        :type root: TreeNode
+        :type val: int
+        :rtype: TreeNode
+        """
+        if not root:
+            return None
+
+        left = self.searchBST(root.left, val)
+        if left:
+            return left
+
+        if root.val == val:
+            return root
+        
+        right = self.searchBST(root.right, val)
+        if right:
+            return right
+
+        return None
+
+# second try:
+class Solution(object):
+    def searchBST(self, root, val):
+        """
+        :type root: TreeNode
+        :type val: int
+        :rtype: TreeNode
+        """
+        p = root
+        while p:
+            if not p:
+                return None
+            
+            if p.val > val:
+                p = p.left
+            elif p.val < val:
+                p = p.right
+            else:
+                return p
+
+        return None
+            
