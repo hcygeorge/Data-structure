@@ -3,7 +3,9 @@
 # The time complexity is O(n^2), space complexity is O(1)
 # attempt count: 1
 
-# 1st try
+# blind spots: forget to skip same value of nums[i], right - 1
+
+# 1st try, 2nd try
 class Solution(object):
     def threeSum(self, nums):
         """
@@ -32,7 +34,7 @@ class Solution(object):
                     # skip the same values before moving pointers
                     while left < right and nums[left+1] == nums[left]:
                         left += 1
-                    while left < right and nums[right-1] == nums[right]:
+                    while left < right and nums[right-1] == nums[right]:  # note that right-1
                         right -= 1
                 
                     left += 1
