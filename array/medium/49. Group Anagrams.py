@@ -1,5 +1,5 @@
 # tips: 重新排序字串並作為的hashmap的key
-
+# O(n*klogk)，若字串長度k很短，則可將klogk看作常數
 class Solution(object):
     def groupAnagrams(self, strs):
         """
