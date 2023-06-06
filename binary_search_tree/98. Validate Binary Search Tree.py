@@ -5,6 +5,13 @@
 #         self.left = left
 #         self.right = right
 
+# tips:
+# 利用self.isValidBST(root.left)遞迴的走到最底部的左子樹
+# 或建立curr迭代的將節點放入stack
+
+# blind spot:
+# 右子樹等所有左子樹遞迴完才檢查
+
 # 遞迴解
 # 提示: 用inorder走訪BST，必會得到嚴格遞增的陣列
 class Solution(object):
@@ -18,9 +25,11 @@ class Solution(object):
         if not root:
             return True
 
+        # 會一直往左走到底
         if not self.isValidBST(root.left):  # 左子樹不是BST，則母樹也不是BST
             return False
 
+        # 從左邊最底部開始往回走，值應該要越來越大
         if root.val <= self.last:
             return False
         else:
@@ -30,7 +39,7 @@ class Solution(object):
 
 # 迭代解
 # 提示: 利用stack先收集所有左節點
-# pre代表前一個節點，curr為現在走道的節點
+# pre代表前一個節點，curr為現在的節點
 class Solution(object):
     def isValidBST(self, root):
         """

@@ -7,11 +7,15 @@
 #         self.left = left
 #         self.right = right
 
-# inorder: 左根右
+# tips: inorder(中序)走訪順序為左中右
 # 1. 遞迴到最底下的左子樹後取得值
 # 2. 走回上一層取得其根節點的值
 # 3. 然後走到右子樹，以右子樹為根檢查1, 2
 # 4. 1,2都做完才取右子樹值
+
+# blind spot:
+# 迭代解時記得要建立一個curr走訪左子樹，走到底才開始取左中右值
+
 
 # Recursion solution
 class Solution(object):
@@ -59,3 +63,43 @@ class Solution(object):
                 cur = cur.right
         
         return res
+    
+
+# second try: recursion solution
+class Solution(object):
+    def inorder(self, root, res):
+        if not root:
+            return None
+
+        self.inorder(root.left, res)
+        res.append(root.val)
+        self.inorder(root.right, res)
+        
+    def inorderTraversal(self, root):
+        """
+        :type root: TreeNode
+        :rtype: List[int]
+        """
+        res = []
+        self.inorder(root, res)
+
+        return res
+
+# third try: 遞迴解
+class Solution(object):
+    def inorderTraversal(self, root):
+        """
+        :type root: TreeNode
+        :rtype: List[int]
+        """
+        res = []
+        self._traversal(root, res)
+        return res
+
+    def _traversal(self, node, res):
+        if not node:
+            return res
+            
+        self._traversal(node.left, res)
+        res.append(node.val)
+        self._traversal(node.right, res)

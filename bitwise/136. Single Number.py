@@ -5,7 +5,7 @@
 # 暴力解: 遍歷每個數字並比較是否與其他數字與重複，O(n^2), O(1)
 # 先排序後比對: O(nlogn), O(n)
 # Hashmap累計出現次數: O(n), O(n)
-# Bitwise Operation: O(n), O(1), refer to https://ithelp.ithome.com.tw/articles/10213278?sc=pt
+# Bitwise Operation: O(n), O(1)
 
 class Solution(object):
     """
@@ -65,3 +65,21 @@ class Solution(object):
             pre ^= nums.pop()
 
         return pre
+    
+
+# second try: hash map
+class Solution(object):
+    def singleNumber(self, nums):
+        """
+        :type nums: List[int]
+        :rtype: int
+        """
+        num_count = {}
+        for i in nums:
+            num_count[i] = num_count.get(i, 0) + 1
+
+        for k, v in num_count.items():
+            if v == 1:
+                return k
+            
+            

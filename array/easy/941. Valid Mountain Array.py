@@ -1,9 +1,9 @@
 # Valid Mountain Array
 # https://leetcode.com/problems/valid-mountain-array/description/
 # edge case: arr長度不夠、peak是第一個元素或最後一個
-# 我的做法是在迭代過程中檢查元素是否比前一個更大，找到peak後改變檢查條件
-# 官方解答將迭代過程分成找到peak前與找到peak後，這樣寫程式碼看起來更簡練
 
+
+# first try: 迭代中檢查元素是否比前一個更大，找到peak後改變檢查條件
 class Solution(object):
     """
     First try
@@ -47,7 +47,7 @@ class Solution(object):
         else:  # edge case 2: peak is the last element
             return False
 
-# 官方解
+# 官方解: 迭代過程分成找到peak前與找到peak後，這樣寫程式碼看起來更簡練
 class Solution(object):
     """
     Official solution
@@ -70,7 +70,7 @@ class Solution(object):
 
         return i == N-1
     
-# 第二次解答
+# 第二次
 class Solution(object):
     """
     Second try
@@ -107,7 +107,7 @@ class Solution(object):
         
         return True
 
-# 第三次解，加入edge case判斷
+# 第三次，加入edge case判斷
 class Solution(object):
     def validMountainArray(self, arr):
         """
@@ -141,4 +141,34 @@ class Solution(object):
             else:
                 return False
 
+        return True
+    
+# fourth try: use pointer
+class Solution(object):
+    def validMountainArray(self, arr):
+        """
+        :type arr: List[int]
+        :rtype: bool
+        """
+        if len(arr) < 3:
+            return False
+
+        p = 1
+        while p < len(arr):
+            if arr[p] > arr[p-1]:
+                p += 1
+            else:
+                break
+            
+        peak = p - 1
+        if peak == 0 or peak == len(arr)-1:
+            return False
+
+        while p < len(arr):
+            if arr[p] < arr[p-1]:
+                p += 1
+            else:
+                return False
+                
+        
         return True
