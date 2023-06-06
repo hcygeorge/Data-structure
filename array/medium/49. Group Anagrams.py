@@ -1,4 +1,4 @@
-# tips: 利用hashmap和sorted
+# tips: 重新排序字串並作為的hashmap的key
 
 class Solution(object):
     def groupAnagrams(self, strs):
