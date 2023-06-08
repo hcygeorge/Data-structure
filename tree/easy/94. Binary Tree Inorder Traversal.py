@@ -61,12 +61,12 @@ class Solution(object):
             else:
                 cur = stack.pop()
                 res.append(cur.val)
-                cur = cur.right
+                cur = cur.right  # if right is null, then it will check cur's root from stack next round
         
         return res
     
 
-# second try: recursion solution
+# 2nd try: recursion solution
 class Solution(object):
     def inorder(self, root, res):
         if not root:
@@ -85,25 +85,6 @@ class Solution(object):
         self.inorder(root, res)
 
         return res
-
-# third try: 遞迴解
-class Solution(object):
-    def inorderTraversal(self, root):
-        """
-        :type root: TreeNode
-        :rtype: List[int]
-        """
-        res = []
-        self._traversal(root, res)
-        return res
-
-    def _traversal(self, node, res):
-        if not node:
-            return res
-            
-        self._traversal(node.left, res)
-        res.append(node.val)
-        self._traversal(node.right, res)
 
 # 4th try: recursion solution
 class Solution(object):
