@@ -16,6 +16,7 @@
 # blind spot:
 # 迭代解時記得要建立一個curr走訪左子樹，走到底才開始取左中右值
 
+# attempt count: 4
 
 # Recursion solution
 class Solution(object):
@@ -103,3 +104,24 @@ class Solution(object):
         self._traversal(node.left, res)
         res.append(node.val)
         self._traversal(node.right, res)
+
+# 4th try: recursion solution
+class Solution(object):
+    def inorderTraversal(self, root):
+        """
+        :type root: TreeNode
+        :rtype: List[int]
+        """
+        res = []
+
+        def traverse(node):
+            if not node:
+                return None
+            
+            traverse(node.left)
+            res.append(node.val)
+            traverse(node.right)
+
+        traverse(root)
+
+        return res
