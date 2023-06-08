@@ -15,9 +15,9 @@
 # 每次檢查完都先將p,q的左右子樹存入deque，以便繼續檢查
 
 # blind spot:
-# 注意p,q都不存在時不代表整棵樹相同，因此不能直接回傳True，需要跳過該次迭代(continue)
+# 注意在迭代解時，一個not p and not q時不代表整棵樹相同，因此不能直接回傳True，需要跳過該次迭代(continue)
 
-# attempt count: 4
+# attempt count: 5
 
 class Solution(object):
     def isSameTree(self, p, q):
@@ -48,7 +48,7 @@ class Solution(object):
 
             # 確認存在性
             if not p and not q:
-                continue
+                continue  # 注意這裡跟遞迴解不一樣!
             if not p or not q:
                 return False
 
@@ -60,27 +60,4 @@ class Solution(object):
             else:
                 return False
         # 通過全部檢查，代表兩樹相同
-        return True
-
-# 4th try: 迭代解，以list取代deque，把p,q存在與相等合併一起檢查
-class Solution(object):
-    def isSameTree(self, p, q):
-        """
-        :type p: TreeNode
-        :type q: TreeNode
-        :rtype: bool
-        """
-
-        queue = [(p, q)]
-
-        while queue:
-            p, q = queue.pop(0)
-            if p and q and p.val == q.val:
-                queue.append((p.left, q.left))
-                queue.append((p.right, q.right))
-            elif not p and not q:
-                continue
-            else:
-                return False
-
         return True
