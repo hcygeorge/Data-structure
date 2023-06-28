@@ -1,9 +1,8 @@
-# Definition for a binary tree node.
-# class TreeNode(object):
-#     def __init__(self, val=0, left=None, right=None):
-#         self.val = val
-#         self.left = left
-#         self.right = right
+# tips: 往左右子樹遞迴以累計相同值的路徑長度
+# 假設該節點是路徑最上層的節點
+# 則該節點長度為左子樹加上右上子樹回傳的長度(值不一樣時子樹回傳長度為0)
+# 若長度為當下最長則更新self.mx
+# 若該節點還不是路徑中最上層的節點，該路徑最長長度後續會被更新
 class Solution(object):
     def __init__(self):
         self.mx = 0
