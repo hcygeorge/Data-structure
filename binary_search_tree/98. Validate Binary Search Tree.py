@@ -11,6 +11,8 @@
 
 # blind spot:
 # 右子樹等所有左子樹遞迴完才檢查
+# 犯了一個錯是想把左子樹右子樹的遞迴結果留到return時判斷
+# 這樣不符合inorder得執行順序
 
 # 遞迴解
 # 提示: 用inorder走訪BST，必會得到嚴格遞增的陣列
@@ -62,4 +64,36 @@ class Solution(object):
             pre = curr
             curr = curr.right
         
+        return True
+
+
+# 迭代解
+# 用continue就可以利用一個迴圈走訪左子樹
+class Solution(object):
+    def isValidBST(self, root):
+        """
+        :type root: TreeNode
+        :rtype: bool
+        """
+        last = -float('inf')
+        if not root:
+            return True
+        stack = []
+        curr = root
+
+        while curr or stack:
+            if curr: # 這裡檢查curr而不是curr.left
+                stack.append(curr)
+                curr = curr.left
+                continue
+            else:
+                curr = stack.pop()
+                if curr.val > last:
+                    last = curr.val
+                else:
+                    return False
+            
+            # 這裡不用先檢查curr.right和stack.append()，前面的if curr會做這件事
+            curr = curr.right
+
         return True
