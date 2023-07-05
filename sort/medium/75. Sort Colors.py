@@ -1,5 +1,5 @@
 # tips: use counting sort, which means count the number of each digit, and then overwrite the array with ordered digits.
-# 用指針時要注意把數字2交換到後面時，指針p須留在原處檢查新數字是否為0
+# 用指針時要注意把交換p跟r的數字後，指針p須留在原處檢查新數字是否為0
 # counting sort缺點是沒有穩定性
 class Solution(object):
     def sortColors(self, nums):
@@ -38,6 +38,7 @@ class Solution(object):
                 r -= 1
             elif nums[p] == 0:
                 nums[p], nums[l] = nums[l], nums[p]
+                l += 1
                 p += 1
             else:
                 p += 1
