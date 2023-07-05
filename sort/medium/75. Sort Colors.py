@@ -1,4 +1,4 @@
-# tips: use counting sort, which means count the number of each digit, and then overwrite the array.
+# tips: use counting sort, which means count the number of each digit, and then overwrite the array with ordered digits.
 
 from collections import OrderedDict
 class Solution(object):
