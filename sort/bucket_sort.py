@@ -5,13 +5,14 @@
 # 如果數字集中在同個桶子，則排序越慢O(n^2)，反之若數字是均勻分配，則排序只要O(n)
 
 # 適用範圍:
+# 要求時間複雜度優於O(nlogn)，但不要求空間複雜度
 # 數字範圍相對小
 # 有足夠的記憶體空間
 
 def bucket_sort(data):
     # 以陣列範圍決定桶子數量並建立桶子
     max_x , min_x = max(data), min(data)
-    shift = abs(min_x) + 10
+    shift = abs(min_x)
     num_bucket = (max_x + shift) // 10 + 1  # 將數字變成非負整數再建立桶子
     bucket = [[] for _ in range(num_bucket)]
     # 走訪陣列並將數字並加入桶子
