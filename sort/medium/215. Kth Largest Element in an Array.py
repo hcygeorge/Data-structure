@@ -43,3 +43,29 @@ class Solution(object):
 
         return select(nums, k)
 
+# 用bucket sort一個數字一個桶，當數列範圍大時會超過時間限制，不是好解法
+class Solution(object):
+    def findKthLargest(self, nums, k):
+        """
+        :type nums: List[int]
+        :type k: int
+        :rtype: int
+        """
+        num_bucket = max(nums) + abs(min(nums)) + 1
+        buckets = [[] for i in range(num_bucket)]
+
+        p = 0
+        while p < len(nums):
+            buckets[nums[p] + abs(min(nums))].append(nums[p])
+            p += 1
+        
+        res = []
+        p2 = len(buckets) - 1
+        while p2 >= 0:
+            res += buckets[p2]
+
+            if len(res) >= k:
+                print(res)
+                return res[-1] 
+
+            p2 -= 1

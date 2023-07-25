@@ -22,7 +22,7 @@ def quick_sort(data: list, left: int, right: int):
     # choose pivot
     pivot = data[left]
 
-    # exchange
+    # find data[l] > pivot and data[r] <= pivot
     while l < r:
         while data[l] <= pivot and l < r:
             l += 1
@@ -31,9 +31,9 @@ def quick_sort(data: list, left: int, right: int):
 
         data[l], data[r] = data[r], data[l]
 
-    # rank pivot
-    data[left] = data[l]  # because now all the numbers ahead of the pivot is low than the pivot
-    data[l] = pivot
+    # move pivot and update pivot
+    data[left] = data[l]  # exchange l to pivot
+    data[l] = pivot  # update pivot
 
     # partition
     quick_sort(data, left, l-1), quick_sort(data, l+1, right)
