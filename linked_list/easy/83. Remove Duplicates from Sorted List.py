@@ -1,4 +1,3 @@
-# try:3
 # Definition for singly-linked list.
 # class ListNode(object):
 #     def __init__(self, val=0, next=None):
@@ -40,4 +39,28 @@ class Solution(object):
             curr = curr.next
 
         return head
+    
+# 邏輯與前次一樣，一個指針指著最後一個node，另一個指針往後找下一個不重複的node
+class Solution(object):
+    def deleteDuplicates(self, head):
+        """
+        :type head: ListNode
+        :rtype: ListNode
+        """
+        if not head:
+            return head
+
+        last = head
+        curr = head.next
+
+        while curr:
+            if curr.val != last.val:
+                last.next = curr
+                last = curr
+
+            curr = curr.next
+
+        last.next = None
+        return head
+
 
