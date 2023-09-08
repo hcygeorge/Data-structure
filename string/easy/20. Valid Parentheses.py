@@ -1,8 +1,8 @@
 
 # tips:
-# 先遇到的右括號一定要和最後一個左括號配對到
-# 使用stack儲存左括號
-# attempt count: 2
+# 每個右括弧一定要和"最後一個"左括弧配對到，
+# 可利用stack儲存左括弧，再遇到右括弧時pop出左括弧比對
+# 注意只有一個括弧以及全部都是右括弧的狀況
 
 class Solution(object):
     def isValid(self, s):
@@ -56,3 +56,23 @@ class Solution(object):
                     return False
         
         return len(left) == 0
+
+
+# 3rd try
+class Solution(object):
+    def isValid(self, s):
+        """
+        :type s: str
+        :rtype: bool
+        """
+        bracket = {'(': ')', '{': '}', '[': ']'}
+        stack = []
+
+        for i in s:
+            if bracket.get(i):
+                stack.append(i)
+            else:
+                if len(stack) == 0 or bracket.get(stack.pop()) != i:
+                    return False
+        
+        return len(stack) == 0
